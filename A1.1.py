@@ -1,3 +1,7 @@
+
+import sys
+
+
 def primeFactorisation (k):
     outputList = []
     primeList = [2]
@@ -31,7 +35,7 @@ def primeFactorisation (k):
 
 
 def main():
-    k = int(input("Please enter k: "))
+    k = int(sys.argv[1])    # problem
     print("  k pfe(k) ")
     if k > 1:
         print("  1 1")
