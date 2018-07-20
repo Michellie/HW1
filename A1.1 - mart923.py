@@ -6,19 +6,25 @@ def primeFactorisation (k):
         firstDigit = 1;
         for j in range(2, i+1):
             if (i % j) == 0:
+                if i == j and i not in primeList:
+                    primeList += [i]
                 count = 0
                 while (i % j) == 0:
                     i = i / j
                     count += 1
+                if j in primeList:
+                    stringValue = str(primeList.index(j) + 2)
+                else:
+                    stringValue = str(j)
                 if count > 1:
-                    factorString = (str(j) + "^" + str(count))   # only prints power that is greater than 1
-                    firstDigit = 0
+                    factorString = (stringValue + "^" + str(count))   # only prints power that is greater than 1
+                    firstDigit = 0      # indicates the next digit will not be the first digit
                 else:
                     if firstDigit == 1:
-                        factorString +=  (str(j))
+                        factorString += stringValue
                     else:
-                        factorString += "*" + (str(j))
-                    firstDigit = 0
+                        factorString += "*" + stringValue
+                    firstDigit = 0      # indicates the next digit will not be the first digit
 
         outputList.append(factorString)
     return outputList
