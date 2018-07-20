@@ -35,8 +35,7 @@ def primeFactorisation (k):
 
 
 def main():
-    k = int(sys.argv[1])    # problem
-    print("  k pfe(k) ")
+    k = int(sys.stdin.readline())   # problem
     if k > 1:
         print("  1 1")
         factorList = primeFactorisation(k)  # returns a list of prime factorisation strings
