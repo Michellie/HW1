@@ -2,7 +2,8 @@
 
 def primeFactorisation (k):
     outputList = []
-    for i in range(2,k):
+    primeList = [2]
+    for i in range(2,k + 1):
         factorString = ""
         for j in range(2, i+1):
             if (i % 2) == 0: # i is an even number
@@ -14,16 +15,15 @@ def primeFactorisation (k):
                     factorString = (str(j) + "^" + str(count))   # only prints power that is greater than 1
                 else:
                     factorString = (str(j))
-        primeList = []
         if i != 1:
             if i not in primeList:
-                primeList.append(i)
+                primeList += [i]
                 factorString += str(int(i))
             else:
-                prime = primeList.index(str(int(i)))
-                factorString += "*" + str(prime + 1)
-
+                prime = primeList.index(int(i))
+                factorString += "*" + str(prime + 2 ) # 1: counting from 1, 2: number 2 is already in the list
         outputList.append(factorString)
+    print("a", primeList)
     return outputList
 
 
@@ -32,8 +32,7 @@ def main():
     print("  k pfe(k) ")
     if k > 1:
         print(" 1 1")
-        # for i in range(1,k):
-        factorList = primeFactorisation(k)
+        factorList = primeFactorisation(k)  # returns a list of prime factorisation strings
         for i in range (len(factorList)):
             print(" " + str(i + 2) + " " + factorList[i])
 
