@@ -1,27 +1,39 @@
 
 
 def primeFactorisation (k):
+    i = k
     factorString = ""
-    for i in range(2, k+1):
-        if (k % 2) == 0:
+    for j in range(2, i+1):
+        if (i % 2) == 0:
             count = 0
-            while (k % i) == 0:
-                k = k / i
+            while (i % j) == 0:
+                i = i / j
                 count += 1
-            factorString = (str(i) + "^" + str(count))
-    primeCount = 0      #keep count of prime number
-    if k != 1:
-        primeCount += 1
-        factorString += "*" + str(int(k))
+            if count > 1:
+                factorString = (str(j) + "^" + str(count))   # only prints power that is greater than 1
+            else:
+                factorString = (str(j))
+
+    primeList = []
+    if i != 1:
+        if i not in primeList:
+            primeList.append(i)
+            factorString += str(int(i))
+        else:
+            prime = primeList.index(str(int(i)))
+            factorString += "*" + str(prime + 1)
+
     return (factorString)
 
 
 def main():
     k = int(input("Please enter k: "))
     print("  k pfe(k) ")
-    for i in range (k):
-        factorString = primeFactorisation(i + 1)
-        print(" " + str(i+ 1) + " " + factorString)
+    if k > 1:
+        print(" 1 1")
+        for i in range(1,k):
+            factorString = primeFactorisation(i + 1)
+            print(" " + str(i+ 1) + " " + factorString)
 
 
 
