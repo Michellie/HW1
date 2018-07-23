@@ -14,9 +14,9 @@ def main():
                     baseDict[i] = 1
                 else:                                   # if base exist, adds power into string of values
                     baseDict[i] = baseDict[i] + 1
-    for key, value in baseDict.items():
-        print("Key:", key, "Values:", value)
-
+    # baseDict = sorted(baseDict.keys())
+        for key in sorted(baseDict):                # sort base values into ascending order
+            print("Key:", key, "Values:", baseDict[key])
 
 
 main()
