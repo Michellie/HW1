@@ -3,7 +3,6 @@ import sys
 
 
 def primeFactorisation (k):
-    print("c")
     outputList = []
     for i in range(11, k + 1, 2):
         count = 0
@@ -25,7 +24,10 @@ def main():
         count = 6
         for i in factorList:
             if len(str(count)) < len(str(i)):       # only prints strings with pfe string shorter than length of d(k) string representation
-                print(i, count)
+                if len(str(i)) == 2:
+                    print(" " + str(i), count)
+                else:
+                    print(str(i), count)
             count += 1
 
 
