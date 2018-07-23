@@ -22,9 +22,7 @@ def main():
                 basePos = i.find("^")
                 key = int(i[:basePos])
                 power = int(i[(basePos+1):])
-            exponent = ""
-            multiplication = ""
-            # print("Key:", key, "Power", power)
+            output = ""
             if key not in baseDict:             # if key doesn't exist, adds key
                 baseDict[key] = power
             else:
@@ -32,13 +30,13 @@ def main():
         if one == 1 and len(baseDict) < 1:
             print("1")
         else:
+            baseDict.pop(1)
             for key in sorted(baseDict):                # sort base values into ascending order
-                print("Keya:", key, "Valuas:", baseDict[key])
                 if baseDict[key] > 1:
-                    exponent += (str(key) + "^" + str(baseDict[key]) + "*")
+                    output += (str(key) + "^" + str(baseDict[key]) + "*")
                 else:
-                    multiplication += (str(key) + "*")
-            print(exponent[:-1] + "*" + multiplication[:-1])      # to remove the last *
+                    output += (str(key) + "*")
+            print(output[:-1])     # to remove the last *
 
 
 main()
