@@ -40,7 +40,8 @@ def primeFactorisation (k):
 def main():
     k = int(sys.stdin.readline())   # problem
     print("  k pfe(k) ")
-    print("  1 1")
+    if k == 1:
+        print("  1 1")
     if k > 1:
         factorList = primeFactorisation(k)  # returns a list of prime factorisation strings
         for i in range (len(factorList)):
